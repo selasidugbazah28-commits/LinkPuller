@@ -9,7 +9,7 @@ public class HtmlRead {
 
         try{
             System.out.println();
-            URL fred = new URL("https://www.milton.edu/");
+            URL fred = new URL("http://google.com/");
             URLConnection urlc = fred.openConnection();
             urlc.setRequestProperty("User-Agent", "Mozilla 5.0 (Windows; U; " + "Windows NT 5.1; en-US; rv:1.8.0.11) ");
             BufferedReader reader = new BufferedReader(
@@ -22,6 +22,7 @@ public class HtmlRead {
                  //   System.out.println(line);
                 }
                 String[] pieces = line.split("href=\"");
+                line.replace("\'"," \"");
                 for (int i = 1; i < pieces.length; i++) {
                     int end = pieces[i].indexOf("\"");
                         String link = pieces[i].substring(0, end);
