@@ -1,5 +1,6 @@
 import java.net.*;
 import java.io.*;
+import java.util.Scanner;
 
 public class HtmlRead {
     public static void main(String[] args) {
@@ -8,9 +9,19 @@ public class HtmlRead {
     public HtmlRead(){
 
         try{
+
+            Scanner input = new Scanner(System.in);
+            System.out.println("Please enter a link (Add the entirety of it): ");
+            String website = input.nextLine();
+
+            System.out.println("You would like to see links that contain: ");
+            String filter2 = input.nextLine();
+
+
             System.out.println();
-            URL fred = new URL("https://open.spotify.com/"); // Where we look to pull links from (Spotify)
-            URLConnection urlc = fred.openConnection();
+            //URL fred = new URL("https://open.spotify.com/"); // Where we look to pull links from (Spotify)
+            URL bob = new URL(website); // Where we look to pull links from
+            URLConnection urlc = bob.openConnection();
             urlc.setRequestProperty("User-Agent", "Mozilla 5.0 (Windows; U; " + "Windows NT 5.1; en-US; rv:1.8.0.11) ");
             BufferedReader reader = new BufferedReader(
                     new InputStreamReader(urlc.getInputStream()));
@@ -33,7 +44,7 @@ public class HtmlRead {
                     if (link.contains("")){
                         //System.out.println(link); // This allows me to see every link in spotify
                     }
-                    if (link.toLowerCase().contains(filter.toLowerCase()) && link.contains("http")){ // This makes the filter include lowercase and capital. Everything that contains milton and has http (No partial links) are printed out
+                    if (link.toLowerCase().contains(filter2.toLowerCase()) && link.contains("http") || link.contains("href=")){ // This makes the filter include lowercase and capital. Everything that contains milton and has http (No partial links) are printed out
 
                         System.out.println(link); // This prints out only links that contain spotify
                     }
