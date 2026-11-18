@@ -7,18 +7,18 @@ public class HtmlRead {
         HtmlRead app= new HtmlRead();
     }
     public HtmlRead() {
-        String runAgain = "Yes";
-        Scanner input = new Scanner(System.in);
+        String runAgain = "Yes"; // Makes it so you could rerun the program without rehitting the play button
+        Scanner input = new Scanner(System.in); // Allows for text based reading from the console
         while (runAgain.equalsIgnoreCase("Yes")) {
             try {
 
 
 
-                System.out.println("Please enter a link (Add the entirety of it): ");
-                String website = input.nextLine();
+                System.out.println("Please enter a link (Add the entirety of it): "); // put your own link
+                String website = input.nextLine(); // paste here
 
-                System.out.println("You would like to see links that contain: ");
-                String filter2 = input.nextLine();
+                System.out.println("You would like to see links that contain: "); // what keywords would you like to see?
+                String filter2 = input.nextLine(); // input here
 
 
                 System.out.println();
@@ -54,11 +54,13 @@ public class HtmlRead {
                     }
                 }
                 reader.close();
-            } catch (Exception ex) {
-                System.out.println(ex);
+            } catch (Exception ex) { // This lets you know if there is something wrong with the link, catches run problems
+              //System.out.println(ex);
+                System.out.println("Poopy butt try again with a better link!" +
+                        "");// Tells you to try again if a problem arises with the link ; very stinky extension from Mx. Bradford
             }
-            System.out.println("Run Again? (Yes/No)");
-            runAgain = input.nextLine();
+            System.out.println("Run Again? (Yes/No)"); // After all the links are pasted, ask if you would like to rerun the program with a possible different link
+            runAgain = input.nextLine(); // input yes or no here to rerun the program or end it, anything but "Yes" or "yes" ends the program
         }
 
 
